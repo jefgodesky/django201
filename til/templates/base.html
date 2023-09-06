@@ -4,5 +4,15 @@
     <meta charset="UTF-8">
     <title>{% block title %}TIL{% endblock %}</title>
   </head>
-  <body>{% block content %}{% endblock %}</body>
+  <body>
+    <nav>
+    <a href="/">TIL</a>
+    {%  if request.user.is_authenticated %}
+      <a href="{% url 'account_logout' %}">Logout</a>
+    {% else %}
+      <a href="{% url 'account_login' %}">Login</a>
+    {% endif %}
+    </nav>
+    {% block body %}{% endblock %}
+  </body>
 </html>
