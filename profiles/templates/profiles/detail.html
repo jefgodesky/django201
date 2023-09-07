@@ -1,0 +1,8 @@
+{%  extends "base.html" %}
+
+{% block title %}TIL: {{ user.username }}{% endblock %}
+
+{% block body %}
+    <h1 class="text-4xl text-gray-700 font-black">{{ user.username }}</h1>
+    <a href="{% url 'feed:index' %}" class="text-blue-600 hover:underline">Return to feed</a>
+{% endblock %}
