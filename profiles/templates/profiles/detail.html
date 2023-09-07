@@ -1,8 +1,31 @@
 {%  extends "base.html" %}
+{% load sorl_thumbnail %}
 
 {% block title %}TIL: {{ user.username }}{% endblock %}
 
 {% block body %}
-    <h1 class="text-4xl text-gray-700 font-black">{{ user.username }}</h1>
+<div class="rounded-3xl overflow-hidden shadow-xl max-w-xs my-3 bg-white">
+  	<img src="https://i.imgur.com/dYcYQ7E.png" class="w-full" />
+    <div class="flex justify-center -mt-8">
+        {% thumbnail user.profile.image "100x100" crop="center" as im %}
+        <img src="{{ im.url }}" class="rounded-full border-solid border-white border-2 -mt-3" alt="{{ user.username }}">
+        {% endthumbnail %}
+    </div>
+	<div class="text-center px-3 pb-6 pt-2">
+		<h3 class="text-black text-lg font-bold font-sans">{{ user.username }}</h3>
+	</div>
+  	<div class="flex justify-center pb-3 text-black">
+      <div class="text-center mr-3 border-r pr-3">
+          <!-- TODO: Add total posts -->
+        <h2>XX</h2>
+        <span>Posts</span>
+      </div>
+      <div class="text-center">
+          <!-- TODO: Add total followers -->
+        <h2>XX</h2>
+        <span>Followers</span>
+      </div>
+  	</div>
+</div>
     <a href="{% url 'feed:index' %}" class="text-blue-600 hover:underline">Return to feed</a>
 {% endblock %}
