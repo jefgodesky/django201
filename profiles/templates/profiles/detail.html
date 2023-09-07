@@ -13,6 +13,15 @@
     </div>
 	<div class="text-center px-3 pb-6 pt-2">
 		<h3 class="text-black text-lg font-bold font-sans">{{ user.username }}</h3>
+        {% if request.user.is_authenticated %}
+        {% if request.user != user %}
+        <button class="js-follow bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center" data-username="{{ user.username }}">
+          <span class="mr-2">Follow {{ user.username }}</span>
+        </button>
+        {% endif %}
+        {% else %}
+            <p><a href="{% url 'account_login' %}" class="text-blue-600 hover:underline">Log in</a> to follow {{ user.username }}</p>
+        {% endif %}
 	</div>
   	<div class="flex justify-center pb-3 text-black">
       <div class="text-center mr-3 border-r pr-3">
