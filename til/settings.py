@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 
     'feed',
+    'profiles',
 ]
 
 MIDDLEWARE = [
