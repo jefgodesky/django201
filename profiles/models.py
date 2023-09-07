@@ -6,7 +6,7 @@ class Profile(models.Model):
     user = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
-        # related_name='profile'
+        related_name='profile'
     )
 
     def __str__(self):
