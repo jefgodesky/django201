@@ -5,7 +5,7 @@ from django.db import models
 class Post(models.Model):
     text = models.CharField(max_length=240)
     date = models.DateTimeField(auto_now=True)
-    auther = models.ForeignKey(
+    author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
     )
