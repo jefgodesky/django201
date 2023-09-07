@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView
 
@@ -19,7 +20,19 @@ class PostDetailView(DetailView):
     context_object_name = 'post'
 
 
-class PostNewView(CreateView):
+class PostNewView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'feed/create.html'
     fields = ['text']
+    request = None
+    success_url = '/'
+
+    def dispatch(self, request, *args, **kwargs):
+        self.request = request
+        return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.author = self.request.user
+        self.post = obj.save()
+        return super(PostNewView, self).form_valid(form)
