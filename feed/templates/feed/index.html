@@ -4,7 +4,9 @@
 
 {% block body %}
     <h1 class="text-4xl text-gray-700 font-black">Your Feed</h1>
+    <div id="posts-container">
     {% for post in posts %}
         {% include 'includes/post.html' with post=post show_permalink=True %}
     {% endfor %}
+    </div>
 {% endblock %}
