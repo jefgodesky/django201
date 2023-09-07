@@ -1,0 +1,9 @@
+{%  extends "base.html" %}
+
+{% block title %}TIL: {{ post }}{% endblock %}
+
+{% block body %}
+    {% include 'includes/post.html' with post=post %}
+
+    <a href="{% url 'feed:index' %}" class="text-blue-600 hover:underline">Return to feed</a>
+{% endblock %}

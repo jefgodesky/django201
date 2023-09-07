@@ -5,5 +5,6 @@ from . import views
 app_name = 'feed'
 
 urlpatterns = [
-    path('', views.Home.as_view(), name='index')
+    path('', views.PostFeedView.as_view(), name='index'),
+    path('<int:pk>/', views.PostDetailView.as_view(), name='detail')
 ]
