@@ -8,3 +8,6 @@ class Profile(models.Model):
         on_delete=models.CASCADE,
         # related_name='profile'
     )
+
+    def __str__(self):
+        return self.user.username
