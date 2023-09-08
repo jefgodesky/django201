@@ -3,7 +3,7 @@
 This is my project for [Kalob Taulien](https://www.skillshare.com/en/user/kalobtaulien)'s
 [Django 201](https://www.skillshare.com/en/classes/Django-201-Intermediate-Django-Development/2058959827)
 course on [Skillshare](https://www.skillshare.com).
-I've written elsewhere about the
+I've written about the
 importance of avoiding tightly-coupled
 Javascript and Ajax like that seen in this
 repository in favor of [progressive enhancement](https://blog.bitsrc.io/a-practical-guide-to-progressive-enhancement-in-2023-52c740c3aff3)
