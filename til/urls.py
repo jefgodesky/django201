@@ -17,6 +17,7 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 from django.contrib import admin
 from django.urls import path, re_path
 
@@ -28,4 +29,5 @@ urlpatterns = [
     path('', include(feed_urls, namespace='feed')),
     path('profile/', include(profiles_urls, namespace='profile')),
     re_path('', include('allauth.urls')),
+    path('profiles/password/done', auth_views.PasswordChangeDoneView.as_view(template_name='profiles/password.done.html'), name='password_change_done'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
