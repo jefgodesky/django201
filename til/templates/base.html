@@ -8,6 +8,40 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
   </head>
   <body>
+    <!-- In a real project, we'd have this CSS in a file of its own; but then again,
+      in a real project, we also wouldn't touch Tailwind with a 10' foot pole, so if
+      I have to use an ugly hack like this to keep the damage that Tailwind does to
+      a workable minimum, is that any worse than the original idea to use Tailwind at
+      all in the first place?
+      Shouldn't this at least go in the head? Yes, it should, but Tailwind uses JS to
+      cludge itself into the head as the last item, after any style tag I add, so I
+      have to add it here, or else it will be overwritten by Tailwind's garbage. -->
+    <style>
+        h1 {
+            font-weight: bold;
+            font-size: 2rem;
+        }
+
+        label {
+            display: block;
+            margin: 1em 0 0.5em;
+            font-weight: bold;
+        }
+
+        input {
+            margin: 0 0 1em 0;
+            padding: 0.5em;
+            width: 100%;
+        }
+
+        .login .primaryAction {
+            background-color: #ccc !important;
+            border-radius: 0.5em;
+            font-weight: bold;
+            margin-left: 1em;
+            padding: 0.5em 1em;
+        }
+    </style>
     <div class="min-h-screen flex flex-row bg-gray-100">
       <nav class="flex flex-col w-56 bg-white rounded-r-3xl overflow-hidden">
         <div class="flex items-center justify-center h-20 shadow-md">
